@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: center / cover no-repeat url("/medias/chalkboard-green.jpg");
+    color: #fff;
+    font-family: 'Indie Flower', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+h1 {
+    margin: 5rem 0 2rem;
+}
+h2 {
+    margin: 0 0 1.5rem;
+}
+
+.game-container {
+    width: 100%;
+    padding: 2rem 1rem;
+    position: relative;
+    margin: auto;
+    width: 90%;
+}
+.errors-display {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    height: 50vh;
+}
+.figure-container {
+    fill: transparent;
+    stroke: #fff;
+    stroke-width: 3px;
+    stroke-linecap: round;
+}
+
+.figure-part {
+    display: none;
+}
+
+#wrong-letters-container {
+    width: 35%;
+}
+#wrong-letters-container .letters {
+    height: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: right;
+}
+#wrong-letters-container span {
+    font-size: 1.5rem;
+    width: 2rem;
+    display: block;
+    text-transform: uppercase;
+}
+
+#word {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 1rem 0;
+}
+
+.letter {
+    border-bottom: .2rem solid #f8fc37;
+    display: inline-flex;
+    font-size: 2rem;
+    align-items: center;
+    justify-content: center;
+    margin: 0 3px;
+    height: 50px;
+    width: 20px;
+    text-transform: uppercase;
+}
+
+.popup-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup {
+    background: #000000;
+    border-radius: .5rem;
+    box-shadow: 0 1rem 1rem .2rem rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.popup button {
+    cursor: pointer;
+    background-color: #fff;
+    color: #1c4b2c;
+    font-family: 'Indie Flower', cursive;
+    border: 0;
+    border-radius: 1rem;
+    margin-top: 1.5rem;
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.popup button:active {
+    transform: scale(0.98);
+}
+
+.popup button:focus {
+    outline: 0;
+}
+
+.notification-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: .8rem .8rem 0 0;
+    padding: 1rem 1.5rem;
+    position: absolute;
+    bottom: -4rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.notification-container p {
+    margin: 0;
+}
+
+.notification-container.show {
+    transform: translateY(-4rem);
+}
