@@ -85,7 +85,7 @@ function updateWrongLettersDisplay() {
         ${wrongLetters.length > 0 ? '<h2>Erreurs</h2>' : ''}
         <div class="letters">
             ${wrongLetters
-                .map(letter => `<span>${letter}</span>`)
+                .map(letter => `<span class="letter">${letter}</span>`)
                 .join('')}
         </div
     `;

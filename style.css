@@ -27,36 +27,30 @@ h2 {
     padding: 2rem 1rem;
     position: relative;
     margin: auto;
-    width: 90%;
 }
+
 .errors-display {
-    display: flex;
-    justify-content: space-around;
     padding: 2rem;
-    height: 50vh;
 }
+
 .figure-container {
     fill: transparent;
     stroke: #fff;
     stroke-width: 3px;
     stroke-linecap: round;
 }
-
 .figure-part {
     display: none;
 }
 
-#wrong-letters-container {
-    width: 35%;
-}
 #wrong-letters-container .letters {
-    height: 70%;
+    height: 8rem;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     text-align: right;
 }
-#wrong-letters-container span {
+#wrong-letters-container .letter {
     font-size: 1.5rem;
     width: 2rem;
     display: block;
@@ -67,18 +61,16 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    margin: 1rem 0;
 }
-
-.letter {
+#word .letter {
     border-bottom: .2rem solid #f8fc37;
     display: inline-flex;
     font-size: 2rem;
     align-items: center;
     justify-content: center;
     margin: 0 3px;
-    height: 50px;
-    width: 20px;
+    height: 3rem;
+    width: 1.2rem;
     text-transform: uppercase;
 }
 
@@ -138,4 +130,19 @@ h2 {
 
 .notification-container.show {
     transform: translateY(-4rem);
+}
+
+@media screen and (min-width: 48rem){
+    .errors-display {
+        display: flex;
+        justify-content: space-around;
+        height: 20rem;
+    }
+    #wrong-letters-container {
+        width: 35%;
+    }
+    #wrong-letters-container .letters {
+        height: 70%;
+    }
+
 }
