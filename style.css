@@ -74,7 +74,7 @@ h2 {
     text-transform: uppercase;
 }
 
-.popup-container {
+#popup-container {
     background-color: rgba(0, 0, 0, 0.3);
     position: fixed;
     top: 0;

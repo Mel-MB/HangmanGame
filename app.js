@@ -4,7 +4,7 @@ const playMethod = document.querySelector('.how-to-play');
 
 const wrongLettersEl =  document.getElementById('wrong-letters-container');
 const figureParts = document.querySelectorAll('.figure-part');
-const notification = document.getElementById('notification-container');
+const notification = document.querySelector('.notification-container');
 
 const popup = document.getElementById('popup-container');
 const finalMessage = document.getElementById('final-message');
@@ -54,11 +54,12 @@ window.addEventListener('keydown', e => {
 
 // Show hidden / correct letters for the word
 function displayWord() {
+    wordEl.setAttribute('aria-label',`Le mot à trouver contient ${selectedWord.length} lettres.`)
 	wordEl.innerHTML = `
     ${selectedWord
 			.split('')
 			.map(
-				letter => `<span class="letter">
+				letter,index => `<span class="letter" aria-label="${correctLetters.includes(letter) ? letter : 'lettre inconnue'} en position ${index+1}">
                     ${correctLetters.includes(letter) ? letter : ''}
                 </span>`
 			)
@@ -70,6 +71,7 @@ function displayWord() {
 	if (writtenWord === selectedWord) {
 		finalMessage.innerText = `Félicitations! 🥳
         Vous avez gagné!`;
+        popup.attr('aria-hidden','false');
 		popup.style.display = 'flex';
 
 		playable = false;
@@ -96,6 +98,7 @@ function updateWrongLettersDisplay() {
 
 		if (index < errors) {
 			part.style.display = 'block';
+            part.attr('aria-hidden','false');
 		} else {
 			part.style.display = 'none';
 		}
@@ -107,6 +110,7 @@ function updateWrongLettersDisplay() {
         Le mot à trouver était 
         "${selectedWord}".`;
 		popup.style.display = 'flex';
+        popup.attr('aria-hidden','false');
 
 		playable = false;
 	}
@@ -116,9 +120,12 @@ function updateWrongLettersDisplay() {
 // Show notification
 function showNotification() {
 	notification.classList.add('show');
+    notification.attr('aria-hidden','false');
+
 
 	setTimeout(() => {
 		notification.classList.remove('show');
+        notification.attr('aria-hidden','true');
 	}, 2000);
 }
 
@@ -138,6 +145,8 @@ playAgainBtn.addEventListener('click', () => {
 	updateWrongLettersDisplay();
 
 	popup.style.display = 'none';
+    popup.attr('aria-hidden','false');
+
     playMethod.style.display = 'block'; 
 });
 
