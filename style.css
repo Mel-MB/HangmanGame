@@ -132,7 +132,7 @@ h2 {
     transform: translateY(-4rem);
 }
 
-@media screen and (min-width: 48rem){
+@media screen and (min-width: 48em){
     .errors-display {
         display: flex;
         justify-content: space-around;
